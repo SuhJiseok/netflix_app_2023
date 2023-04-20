@@ -29,6 +29,38 @@ overflow-y: hidden; overflow-x: auto;scroll-behavior: smooth;}
 
 
 
+.row__posterContainer {
+  position: relative;
+}
+
+.row__posterInfo {
+  position: absolute;
+  bottom: -100%; /* 정보를 아래로 숨깁니다. */
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  pointer-events: none;
+}
+
+.row__posterContainer:hover .row__posterInfo {
+  bottom: 0; /* 호버 시 정보를 위로 올립니다. */
+  opacity: 1;
+}
+
+
+
+
+
+
+
 
 @media screen and (min-width: 1200px) { /*1200 ~ 최대 */
   .row__poster{max-height: 160px;}

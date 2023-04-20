@@ -12,6 +12,7 @@
     "pages": "^0.0.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.9",
@@ -44,5 +45,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://SuhJiseok.github.io/netflix_app_2023"
+  "homepage": "https://SuhJiseok.github.io/netflix_app_2023",
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
 }

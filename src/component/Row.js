@@ -15,7 +15,7 @@ function Row({isLargeRow, title, id, fetchUrl}) {
   const [movies, setMovies] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [movieSelected, setMovieSelected] = useState([]);
-
+  
 
   useEffect(() => {
     fetchMovieData();
@@ -30,8 +30,8 @@ function Row({isLargeRow, title, id, fetchUrl}) {
   const handleClick = (movie) => {
 
     setModalOpen(true);
-    setMovieSelected(movie);
-  }
+    setMovieSelected({ ...movie, id: movie.id });
+  };
   return (
     <section className='row' key={id}>
       <h2>{title}</h2>
@@ -56,36 +56,30 @@ function Row({isLargeRow, title, id, fetchUrl}) {
     }}}
 
       >
-      {/* <div className='slider'>
-        <div className='slider__arrow left'>
-        <span className='arrow' onClick={()=> {document.getElementById(id).scrollLeft -= (window.innerWidth - 80)}}>
-          {"<"}
-        </span>
-        </div> */}
         <div id={id} className='row__posters'>
           {movies.map((movie) => (
             <SwiperSlide>
-            <img
-              key={movie.id}
-              onClick={() => handleClick(movie)}
-              className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-              src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-              loading='lazy'
-              alt={movie.title || movie.name || movie.original_name}
-            />
+              <div className='row__posterContainer'>
+                <img
+                  key={movie.id}
+                  onClick={() => handleClick(movie)}
+                  className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+                  src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+                  loading='lazy'
+                  alt={movie.title || movie.name || movie.original_name}
+                />
+                <div className='row__posterInfo'>
+                  <h3>{movie.title || movie.name || movie.original_name}</h3>
+                  <p>개봉일: {movie.release_date ? movie.release_date : movie.first_air_date}</p>
+                  <p>평점: {movie.vote_average}</p>
+                </div>
+              </div>
             </SwiperSlide>
           ))}
         </div>
-        {/* <div className='slider__arrow right'>
-            <span className='arrow'
-            onClick={()=> {document.getElementById(id).scrollLeft += (window.innerWidth - 80);}}>
-              {">"}
-            </span>
-        </div>
-      </div> */}
       </Swiper>
       {modalOpen && (
-        <MovieModal {...movieSelected}  setModalOpen={setModalOpen} />
+        <MovieModal {...movieSelected}  setModalOpen={setModalOpen}  movieId={movieSelected.id} />
       )}
     </section>
   )
