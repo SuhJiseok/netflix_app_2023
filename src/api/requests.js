@@ -8,6 +8,10 @@ const requests = {
   fetchAdventureMovies: "/discover/movie?with_genres=12",
   fetchScienceFictionMovies: "/discover/movie?with_genres=878",
   fetchAction: "/discover/movie?with_genres=28",
+
 }
+
+export const genreListURL = `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_MOVIE_DB_API_KEY}&language=ko-KR`;
+
 
 export default requests;

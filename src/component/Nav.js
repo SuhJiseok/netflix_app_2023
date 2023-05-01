@@ -7,6 +7,9 @@ function Nav() {
 const [show, setShow] = useState(false);
 const [searchValue, setSearchValule] = useState("");
 const navigate = useNavigate();
+const handleAvatarClick = () =>{
+  navigate('/login');
+};
 
 useEffect(() => {
  window.addEventListener("scroll", ()=>{
@@ -38,7 +41,10 @@ const onChange = (e) => {
       onChange={onChange} value={searchValue}/>
 
 
-      <img src='https://occ-0-4796-988.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41' alt='User logged' className='nav__avatar' />
+      <img src='https://occ-0-4796-988.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41'
+       alt='User logged' 
+       className='nav__avatar'
+       onClick={handleAvatarClick} />
     </nav>
   )
 }
