@@ -114,7 +114,7 @@ function Row({isLargeRow, title, id, fetchUrl}) {
                   <p className='genre'>{getGenreNames(movie.genre_ids)}</p>
                   <p>개봉일: {movie.release_date ? movie.release_date : movie.first_air_date}</p>
                   {title === "NETFLIX ORIGINALS" && (
-                    <p className='overview'>줄거리: {movie.overview}</p>
+                    <p className='overview'>줄거리 : {movie.overview}</p>
                   )}
                   </div>
                 </div>
