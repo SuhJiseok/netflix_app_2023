@@ -50,7 +50,7 @@ if(!isClicked){
           <button className='banner__button play' onClick={()=> setIsClicked(true)}>
             play
           </button>
-          <button className='banner__button info'>
+          <button className='banner__button info' >
             More Information
           </button>
         </div>

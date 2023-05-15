@@ -11,9 +11,11 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [newAccount, setNewAccount] = useState(true);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       let data;
       if (newAccount) {
@@ -21,8 +23,11 @@ function LoginForm() {
       } else {
         data = await signInWithEmailAndPassword(authService, email, password);
       }
+      console.log('data->',data)
     } catch (error) {
       setError(error.message);
+    } finally{
+      setLoading(false);
     }
   };
 
@@ -37,6 +42,7 @@ function LoginForm() {
       provider = new GithubAuthProvider();
     }
     const data = await signInWithPopup(authService, provider);
+    console.log('data->',data)
   };
 
   const onChange = (e) => {
@@ -55,12 +61,12 @@ function LoginForm() {
         <form onSubmit={handleSubmit}>
           <h2>Sign in</h2>
           <div className='inputbox'>
-          <input type="email" id="email" name="email" required="required" onChange={onChange} />
+          <input type="email" id="email" name="email" required value={email} onChange={onChange} />
           <span>Username</span>
           <i></i>
           </div>
           <div className='inputbox'>
-          <input type="password" id="password" name="password" required="required" onChange={onChange} />
+          <input type="password" id="password" name="password" required value={password} onChange={onChange} />
           <span>Password</span>
           <i></i>
           </div>

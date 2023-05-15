@@ -24,11 +24,12 @@ const Layout = () =>{
 }
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
-
+  const [userObj, setUserObj] = useState(null);
   useEffect(() => {
     onAuthStateChanged(authService, (user) => {
       if (user) {
         setIsLoggedIn(true);
+        setUserObj(user)
       } else {
         setIsLoggedIn(false);
       }
@@ -38,6 +39,7 @@ function App() {
 
   return (
    <div className="app">
+    
     <Routes>
       {isLoggedIn ? (
       <Route path="/" element={<Layout />}>
@@ -45,6 +47,7 @@ function App() {
         <Route path=":movieId" element={<MovieModal/>} /> 
         <Route path="search" element={<SearchPage />} />
         <Route path="login" element={<LoginForm />} />
+        <Route path=":movieId" element={<DetailPage/>} /> 
       </Route>
       ) : (
         <Route path="/" element={<LoginForm />} />
