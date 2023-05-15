@@ -43,6 +43,7 @@ function LoginForm() {
     const { target: { name, value } } = e;
     if (name === "email") {
       setEmail(value);
+      console.log(value); // 이메일 상태의 변화를 확인
     } else if (name === "password") {
       setPassword(value);
     }
@@ -54,12 +55,12 @@ function LoginForm() {
         <form onSubmit={handleSubmit}>
           <h2>Sign in</h2>
           <div className='inputbox'>
-          <input type="email" id="email" name="email" required="required" />
+          <input type="email" id="email" name="email" required="required" onChange={onChange} />
           <span>Username</span>
           <i></i>
           </div>
           <div className='inputbox'>
-          <input type="password" id="password" name="password" required="required" />
+          <input type="password" id="password" name="password" required="required" onChange={onChange} />
           <span>Password</span>
           <i></i>
           </div>
