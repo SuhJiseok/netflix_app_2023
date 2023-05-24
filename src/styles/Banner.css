@@ -17,7 +17,7 @@
 }
 
 @media (min-width:769px ) and (max-width: 1499px) {
-  .banner--fadeBottom{position: absolute;bottom: 44%;width: 100%;}
+  .banner--fadeBottom{position: absolute;bottom: 18%;width: 100%;}
   
 }
 
@@ -26,5 +26,5 @@
     margin-left: 0px !important;}
   .banner__description{font-size: 0.8rem !important;width: auto !important;}
   .banner__button{font-size: 0.8rem !important;border-radius: 4px !important;}
-  .banner--fadeBottom{position: absolute;bottom: 44%;width: 100%;}
+  .banner--fadeBottom{position: absolute;bottom: 46%;width: 100%;}
 }
